@@ -1,0 +1,148 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #755A30;
+  --color-on-primary: #FFFFFF;
+  --color-surface: #F3ECE2;
+  --color-on-surface: #161514;
+  --color-surface-elevated: #FAF6F0;
+  --color-on-surface-elevated: #161514;
+  --color-surface-dark: #11100F;
+  --color-on-surface-dark: #F3ECE2;
+  --color-surface-dark-card: #1B1917;
+  --color-on-surface-dark-card: #F3ECE2;
+  --color-gold: #B89768;
+  --color-gold-light: #D4B78C;
+  --color-ink-muted: #5A554E;
+  --color-ink-light-muted: #C4BCB0;
+  --color-border-dark: #D6CFC5;
+  --color-border-light: #32302F;
+  --color-quote-backdrop: #2A241E;
+
+  --font-display: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --font-headline: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --font-title: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --font-body: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-label: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --text-display-lg: 48px;
+  --text-display-lg--line-height: 50px;
+  --text-display-lg--letter-spacing: -0.5px;
+
+  --text-display-lg-mobile: 32px;
+  --text-display-lg-mobile--line-height: 36px;
+  --text-display-lg-mobile--letter-spacing: -0.25px;
+
+  --text-headline-lg: 42px;
+  --text-headline-lg--line-height: 44px;
+  --text-headline-lg--letter-spacing: 0px;
+
+  --text-headline-lg-mobile: 28px;
+  --text-headline-lg-mobile--line-height: 32px;
+  --text-headline-lg-mobile--letter-spacing: 0px;
+
+  --text-headline-md: 32px;
+  --text-headline-md--line-height: 36px;
+  --text-headline-md--letter-spacing: 0px;
+
+  --text-title-lg: 24px;
+  --text-title-lg--line-height: 30px;
+  --text-title-lg--letter-spacing: 0.25px;
+
+  --text-title-md: 15px;
+  --text-title-md--line-height: 22px;
+  --text-title-md--letter-spacing: 0.5px;
+
+  --text-body-md: 14px;
+  --text-body-md--line-height: 24px;
+  --text-body-md--letter-spacing: 0px;
+
+  --text-body-sm: 13px;
+  --text-body-sm--line-height: 21px;
+  --text-body-sm--letter-spacing: 0px;
+
+  --text-label-md: 11px;
+  --text-label-md--line-height: 16px;
+  --text-label-md--letter-spacing: 2.2px;
+
+  --text-label-sm: 10px;
+  --text-label-sm--line-height: 14px;
+  --text-label-sm--letter-spacing: 1.4px;
+
+  --ease-editorial-reveal: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-card-hover: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #F3ECE2;
+  background-image: radial-gradient(circle at 75% 20%, rgba(255, 255, 255, 0.55), transparent 60%);
+  overflow-x: hidden;
+}
+
+.serif-editorial {
+  font-family: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  font-weight: 400;
+}
+
+.hero-masthead {
+  font-size: clamp(54px, 14.8vw, 220px);
+  line-height: 0.85;
+  letter-spacing: -0.02em;
+}
+
+.kicker-editorial {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.stamp-spin {
+  animation: spinSlow 24s linear infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+dialog::backdrop {
+  background: rgba(17, 16, 15, 0.82);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .stamp-spin {
+    animation: none;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
